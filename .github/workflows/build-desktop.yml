@@ -1,0 +1,47 @@
+name: Build Desktop Apps
+on: [push, workflow_dispatch]
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt pyinstaller
+      - run: pyinstaller --onefile --windowed --name NoosphereBreath main.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Windows-App
+          path: dist/NoosphereBreath.exe
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt pyinstaller
+      - run: pyinstaller --onefile --windowed --name NoosphereBreath main.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macOS-App
+          path: dist/NoosphereBreath
+
+  build-linux:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-tk python3-pygame
+          pip install -r requirements.txt pyinstaller
+      - run: pyinstaller --onefile --windowed --name NoosphereBreath main.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Linux-App
+          path: dist/NoosphereBreath
