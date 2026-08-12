@@ -6,7 +6,7 @@ from typing import Tuple
 
 logger = logging.getLogger('NoosphereBreath.BotClient')
 
-ACTIVATION_SERVER = "https://noosphereproject.ru:5000"
+ACTIVATION_SERVER = "http://noosphereproject.ru:5000"
 
 
 class BotClient:
