@@ -63,7 +63,7 @@ class ActivationScreen(tk.Frame):
 
 class TkinterApp(tk.Tk):
     def __init__(self):
-        super().__init()
+        tk.Tk.__init__(self)
         
         self.controller = AppController()
         self.controller.initialize(texts_ru, texts_en)
