@@ -22,7 +22,7 @@ class TkinterStyles:
     FONTS: Dict[str, Dict[str, Any]] = field(default_factory=lambda: {
         "title": {
             "family": "Times",
-            "size": 48,
+            "size": 57,
             "weight": "bold",
             "scale_with_window": True,
             "min_size": 24,
@@ -30,7 +30,7 @@ class TkinterStyles:
         },
         "button": {
             "family": "Times",
-            "size": 24,
+            "size": 28,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 16,
@@ -38,7 +38,7 @@ class TkinterStyles:
         },
         "label_title": {
             "family": "Times",
-            "size": 24,
+            "size": 28,
             "weight": "bold",
             "scale_with_window": True,
             "min_size": 18,
@@ -46,7 +46,7 @@ class TkinterStyles:
         },
         "label_large": {
             "family": "Times",
-            "size": 22,
+            "size": 26,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 16,
@@ -54,7 +54,7 @@ class TkinterStyles:
         },
         "label_medium": {
             "family": "Times",
-            "size": 20,
+            "size": 24,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 14,
@@ -62,7 +62,7 @@ class TkinterStyles:
         },
         "label_small": {
             "family": "Times",
-            "size": 18,
+            "size": 21,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 12,
@@ -70,7 +70,7 @@ class TkinterStyles:
         },
         "timer": {
             "family": "Times",
-            "size": 48,
+            "size": 57,
             "weight": "bold",
             "scale_with_window": True,
             "min_size": 32,
@@ -135,7 +135,7 @@ class TkinterStyles:
     SURVEY_FONTS: Dict[str, Dict[str, Any]] = field(default_factory=lambda: {
         "title": {
             "family": "Times",
-            "size": 32,
+            "size": 38,
             "weight": "bold",
             "scale_with_window": True,
             "min_size": 20,
@@ -143,7 +143,7 @@ class TkinterStyles:
         },
         "question": {
             "family": "Times",
-            "size": 28,
+            "size": 33,
             "weight": "bold",
             "scale_with_window": True,
             "min_size": 18,
@@ -151,7 +151,7 @@ class TkinterStyles:
         },
         "description": {
             "family": "Times",
-            "size": 20,
+            "size": 24,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 14,
@@ -159,7 +159,7 @@ class TkinterStyles:
         },
         "option_button": {
             "family": "Times",
-            "size": 20,
+            "size": 24,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 14,
@@ -167,7 +167,7 @@ class TkinterStyles:
         },
         "option_hint": {
             "family": "Times",
-            "size": 16,
+            "size": 19,
             "weight": "italic",
             "scale_with_window": True,
             "min_size": 12,
@@ -175,7 +175,7 @@ class TkinterStyles:
         },
         "result_title": {
             "family": "Times",
-            "size": 36,
+            "size": 43,
             "weight": "bold",
             "scale_with_window": True,
             "min_size": 24,
@@ -183,7 +183,7 @@ class TkinterStyles:
         },
         "result_text": {
             "family": "Times",
-            "size": 22,
+            "size": 26,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 16,
@@ -191,7 +191,7 @@ class TkinterStyles:
         },
         "tip": {
             "family": "Times",
-            "size": 18,
+            "size": 21,
             "weight": "italic",
             "scale_with_window": True,
             "min_size": 14,
@@ -204,9 +204,9 @@ class TkinterStyles:
         "description_height_ratio": 0.5,
         "options_y_start": 0.35,
         "option_y_step": 0.13,
-        "option_button_width": 0.5,
+        "option_button_width": 0.25,
         "option_button_height": 0.06,
-        "option_hint_width": 0.35,
+        "option_hint_width": 0.25,
         "option_hint_height": 0.04,
         "option_hint_x_offset": 0.57,
         "option_hint_y_offset": 0.06
@@ -226,7 +226,7 @@ class TkinterStyles:
         "button_pady": 15,
         "title_font": {
             "family": "Times",
-            "size": 20,
+            "size": 24,
             "weight": "bold",
             "scale_with_window": True,
             "min_size": 14,
@@ -234,7 +234,7 @@ class TkinterStyles:
         },
         "message_font": {
             "family": "Times",
-            "size": 16,
+            "size": 19,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 12,
@@ -242,7 +242,7 @@ class TkinterStyles:
         },
         "button_font": {
             "family": "Times",
-            "size": 14,
+            "size": 16,
             "weight": "normal",
             "scale_with_window": True,
             "min_size": 10,
@@ -268,7 +268,7 @@ class TkinterStyles:
         "fg_color": "#333333",
         "font": {
             "family": "Times",
-            "size": 14,
+            "size": 16,
             "weight": "normal"
         },
         "border_color": "#D4A574",
@@ -297,37 +297,37 @@ class TkinterStyles:
     
     # ==================== ШРИФТЫ ДНЕВНИКА ====================
     DIARY_STATS_FONT: Dict[str, Any] = field(default_factory=lambda: {
-        "family": "Times", "size": 18, "weight": "bold",
+        "family": "Times", "size": 21, "weight": "bold",
         "scale_with_window": True, "min_size": 14, "max_size": 22
     })
     
     DIARY_ENTRIES_FONT: Dict[str, Any] = field(default_factory=lambda: {
-        "family": "Times", "size": 18, "weight": "normal",
+        "family": "Times", "size": 21, "weight": "normal",
         "scale_with_window": True, "min_size": 14, "max_size": 22
     })
     
     DIARY_PERIOD_BUTTON_FONT: Dict[str, Any] = field(default_factory=lambda: {
-        "family": "Times", "size": 13, "weight": "normal",
-        "scale_with_window": True, "min_size": 10, "max_size": 16
+        "family": "Times", "size": 20, "weight": "normal",
+        "scale_with_window": True, "min_size": 16, "max_size": 22
     })
     
     DIARY_NAV_BUTTON_FONT: Dict[str, Any] = field(default_factory=lambda: {
-        "family": "Times", "size": 18, "weight": "bold",
+        "family": "Times", "size": 21, "weight": "bold",
         "scale_with_window": True, "min_size": 14, "max_size": 22
     })
     
     DIARY_COUNTER_FONT: Dict[str, Any] = field(default_factory=lambda: {
-        "family": "Times", "size": 16, "weight": "normal",
+        "family": "Times", "size": 19, "weight": "normal",
         "scale_with_window": True, "min_size": 12, "max_size": 20
     })
     
     DIARY_DATE_FONT: Dict[str, Any] = field(default_factory=lambda: {
-        "family": "Times", "size": 20, "weight": "bold",
+        "family": "Times", "size": 24, "weight": "bold",
         "scale_with_window": True, "min_size": 16, "max_size": 24
     })
     
     DIARY_COL_HEADER_FONT: Dict[str, Any] = field(default_factory=lambda: {
-        "family": "Times", "size": 16, "weight": "bold",
+        "family": "Times", "size": 19, "weight": "bold",
         "scale_with_window": True, "min_size": 12, "max_size": 20
     })
     
@@ -336,14 +336,14 @@ class TkinterStyles:
     DIARY_NOTES_FONT: tuple = ("Times", 14)
     
     DIARY_STATS_PAGE_FONT: Dict[str, Any] = field(default_factory=lambda: {
-        "family": "Times", "size": 16, "weight": "normal",
+        "family": "Times", "size": 19, "weight": "normal",
         "scale_with_window": True, "min_size": 12, "max_size": 20
     })
     
     # ==================== СТИЛИ ДЛЯ КНОПОК ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА ====================
     LANGUAGE_BUTTON_FONT: Dict[str, Any] = field(default_factory=lambda: {
         "family": "Times",
-        "size": 16,
+        "size": 19,
         "weight": "normal",
         "scale_with_window": True,
         "min_size": 12,

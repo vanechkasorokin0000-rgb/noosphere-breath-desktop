@@ -236,25 +236,25 @@ class AppController:
         cycles_map = {
             "wim_hof": {
                 "beginner": {
-                    1: [(texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["prepare"], 10),
-                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["accelerate"], 10),
-                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["basic"], 10)],
-                    2: [(texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["warmup"], 10),
-                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["halfway"], 10),
-                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["final_push"], 10)],
-                    3: [(texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["almost"], 10),
-                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["keep_pace"], 10),
-                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["finish_line"], 10)]
+                    1: [(texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["prepare"], 120),
+                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["accelerate"], 30),
+                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["basic"], 15)],
+                    2: [(texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["warmup"], 120),
+                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["halfway"], 45),
+                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["final_push"], 15)],
+                    3: [(texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["almost"], 120),
+                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["keep_pace"], 60),
+                        (texts.TIMER_MESSAGES_WIM_HOF_BEGINNER["finish_line"], 15)]
                 },
                 "advanced": {
-                    1: [(texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["prepare"], 12),
-                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["accelerate"], 12),
-                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["basic"], 12)],
-                    2: [(texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["warmup"], 12),
-                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["halfway"], 12),
-                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["final_push"], 12)],
-                    3: [(texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["almost"], 15),
-                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["keep_pace"], 15),
+                    1: [(texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["prepare"], 120),
+                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["accelerate"], 30),
+                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["basic"], 15)],
+                    2: [(texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["warmup"], 120),
+                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["halfway"], 60),
+                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["final_push"], 15)],
+                    3: [(texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["almost"], 120),
+                        (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["keep_pace"], 90),
                         (texts.TIMER_MESSAGES_WIM_HOF_ADVANCED["finish_line"], 15)]
                 }
             },
@@ -264,14 +264,14 @@ class AppController:
                         (texts.TIMER_MESSAGES_PRANA1["hold"], 4),
                         (texts.TIMER_MESSAGES_PRANA1["exhale"], 4),
                         (texts.TIMER_MESSAGES_PRANA1["hold"], 4)]
-                    for i in range(1, 11)
+                    for i in range(1, 10)
                 },
                 "advanced": {
                     i: [(texts.TIMER_MESSAGES_PRANA1["inhale"], 6),
                         (texts.TIMER_MESSAGES_PRANA1["hold"], 6),
                         (texts.TIMER_MESSAGES_PRANA1["exhale"], 6),
                         (texts.TIMER_MESSAGES_PRANA1["hold"], 6)]
-                    for i in range(1, 11)
+                    for i in range(1, 10)
                 }
             },
             "prana2": {
@@ -280,39 +280,39 @@ class AppController:
                         (texts.TIMER_MESSAGES_PRANA2["exhale_right"], 4),
                         (texts.TIMER_MESSAGES_PRANA2["inhale_right"], 4),
                         (texts.TIMER_MESSAGES_PRANA2["exhale_left"], 4)]
-                    for i in range(1, 11)
+                    for i in range(1, 10)
                 },
                 "advanced": {
                     i: [(texts.TIMER_MESSAGES_PRANA2["inhale_left"], 6),
                         (texts.TIMER_MESSAGES_PRANA2["exhale_right"], 6),
                         (texts.TIMER_MESSAGES_PRANA2["inhale_right"], 6),
                         (texts.TIMER_MESSAGES_PRANA2["exhale_left"], 6)]
-                    for i in range(1, 11)
+                    for i in range(1, 10)
                 }
             },
             "prana3": {
                 "beginner": {
                     i: [(texts.TIMER_MESSAGES_PRANA3["inhale"], 4),
-                        (texts.TIMER_MESSAGES_PRANA3["exhale_sound"], 8)]
-                    for i in range(1, 8)
+                        (texts.TIMER_MESSAGES_PRANA3["exhale_sound"], 10)]
+                    for i in range(1, 10)
                 },
                 "advanced": {
                     i: [(texts.TIMER_MESSAGES_PRANA3["inhale"], 6),
                         (texts.TIMER_MESSAGES_PRANA3["exhale_sound"], 12)]
-                    for i in range(1, 8)
+                    for i in range(1, 10)
                 }
             },
             "addiction": {
                 "advanced": {
-                    1: [(texts.TIMER_MESSAGES_ADDICTION["prepare"], 10),
-                        (texts.TIMER_MESSAGES_ADDICTION["start"], 10),
-                        (texts.TIMER_MESSAGES_ADDICTION["focus"], 10)],
-                    2: [(texts.TIMER_MESSAGES_ADDICTION["warmup"], 10),
-                        (texts.TIMER_MESSAGES_ADDICTION["halfway"], 10),
-                        (texts.TIMER_MESSAGES_ADDICTION["final"], 10)],
-                    3: [(texts.TIMER_MESSAGES_ADDICTION["almost"], 10),
-                        (texts.TIMER_MESSAGES_ADDICTION["keep"], 10),
-                        (texts.TIMER_MESSAGES_ADDICTION["finish"], 10)]
+                    1: [(texts.TIMER_MESSAGES_ADDICTION["prepare"], 120),
+                        (texts.TIMER_MESSAGES_ADDICTION["start"], 30),
+                        (texts.TIMER_MESSAGES_ADDICTION["focus"], 15)],
+                    2: [(texts.TIMER_MESSAGES_ADDICTION["warmup"], 120),
+                        (texts.TIMER_MESSAGES_ADDICTION["halfway"], 60),
+                        (texts.TIMER_MESSAGES_ADDICTION["final"], 15)],
+                    3: [(texts.TIMER_MESSAGES_ADDICTION["almost"], 120),
+                        (texts.TIMER_MESSAGES_ADDICTION["keep"], 90),
+                        (texts.TIMER_MESSAGES_ADDICTION["finish"], 15)]
                 }
             }
         }

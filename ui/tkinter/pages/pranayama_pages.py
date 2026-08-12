@@ -21,7 +21,7 @@ class BasePranasPage(PageWithBackground):
         super().__init__(parent, controller, bg_image)
         self.level = level
         
-        self.create_title(self.texts.LEVEL_TITLES[level]["pranas"], y_ratio=0.05)
+        self.create_title(self.texts.LEVEL_TITLES[level]["pranas"], y_ratio=0.05, width_ratio=0.6, height_ratio=0.07)
         
         buttons = [
             (self.texts.BUTTON_TEXTS["pranas_description"], f"Pranas{level.capitalize()}DescriptionPage", 0.17),
@@ -61,7 +61,7 @@ class BasePranasDescriptionPage(PageWithBackground):
     def __init__(self, parent: tk.Widget, controller: 'AppController', bg_image, level: str):
         super().__init__(parent, controller, bg_image)
         
-        self.create_title(self.texts.LEVEL_TITLES[level]["pranas_description"], y_ratio=0.03)
+        self.create_title(self.texts.LEVEL_TITLES[level]["pranas_description"], y_ratio=0.03, width_ratio=0.6, height_ratio=0.07)
         
         if level == "beginner":
             description = self.texts.PRANAS_BEGINNER_DESCRIPTION
@@ -70,7 +70,7 @@ class BasePranasDescriptionPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=description,
-            width_ratio=0.9, height_ratio=0.65, y_ratio=0.10,
+            width_ratio=0.9, height_ratio=0.65, y_ratio=0.13,
             font_config=self.styles.FONTS["label_medium"],
             justify="center"  # Добавлено
         )
@@ -80,7 +80,7 @@ class BasePranasDescriptionPage(PageWithBackground):
             command=lambda: controller.show_frame(f"Pranas{level.capitalize()}Page"),
             width_ratio=self.styles.WIDGET_SIZES["button_medium"]["width"],
             height_ratio=self.styles.WIDGET_SIZES["button_medium"]["height"],
-            y_ratio=0.78
+            y_ratio=0.81
         )
 
 
@@ -107,7 +107,7 @@ class BasePrana1Page(PageWithBackground):
         super().__init__(parent, controller, bg_image)
         self.level = level
         
-        self.create_title(self.texts.LEVEL_TITLES[level]["prana1"], y_ratio=0.05)
+        self.create_title(self.texts.LEVEL_TITLES[level]["prana1"], y_ratio=0.05, width_ratio=0.6, height_ratio=0.07)
         
         self.create_button(
             text=self.texts.BUTTON_TEXTS["description"],
@@ -154,7 +154,7 @@ class BasePrana1DescriptionPage(PageWithBackground):
     def __init__(self, parent: tk.Widget, controller: 'AppController', bg_image, level: str):
         super().__init__(parent, controller, bg_image)
         
-        self.create_title(self.texts.LEVEL_TITLES[level]["prana1_description"], y_ratio=0.03)
+        self.create_title(self.texts.LEVEL_TITLES[level]["prana1_description"], y_ratio=0.03, width_ratio=0.6, height_ratio=0.07)
         
         if level == "beginner":
             description = self.texts.PRANA1_BEGINNER_DESCRIPTION
@@ -163,7 +163,7 @@ class BasePrana1DescriptionPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=description,
-            width_ratio=0.95, height_ratio=0.65, y_ratio=0.10,
+            width_ratio=0.95, height_ratio=0.65, y_ratio=0.13,
             font_config=self.styles.FONTS["label_medium"],
             justify="center"  # Добавлено
         )
@@ -173,7 +173,7 @@ class BasePrana1DescriptionPage(PageWithBackground):
             command=lambda: controller.show_frame(f"Prana1{level.capitalize()}Page"),
             width_ratio=self.styles.WIDGET_SIZES["button_medium"]["width"],
             height_ratio=self.styles.WIDGET_SIZES["button_medium"]["height"],
-            y_ratio=0.78
+            y_ratio=0.81
         )
 
 
@@ -263,7 +263,7 @@ class BasePrana2DescriptionPage(PageWithBackground):
     def __init__(self, parent: tk.Widget, controller: 'AppController', bg_image, level: str):
         super().__init__(parent, controller, bg_image)
         
-        self.create_title(self.texts.LEVEL_TITLES[level]["prana2_description"], y_ratio=0.03)
+        self.create_title(self.texts.LEVEL_TITLES[level]["prana2_description"], y_ratio=0.03, width_ratio=0.63, height_ratio=0.07)
         
         if level == "beginner":
             description = self.texts.PRANA2_BEGINNER_DESCRIPTION
@@ -272,7 +272,7 @@ class BasePrana2DescriptionPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=description,
-            width_ratio=0.95, height_ratio=0.65, y_ratio=0.10,
+            width_ratio=0.95, height_ratio=0.65, y_ratio=0.13,
             font_config=self.styles.FONTS["label_medium"],
             justify="center"  # Добавлено
         )
@@ -282,7 +282,7 @@ class BasePrana2DescriptionPage(PageWithBackground):
             command=lambda: controller.show_frame(f"Prana2{level.capitalize()}Page"),
             width_ratio=self.styles.WIDGET_SIZES["button_medium"]["width"],
             height_ratio=self.styles.WIDGET_SIZES["button_medium"]["height"],
-            y_ratio=0.78
+            y_ratio=0.81
         )
 
 
@@ -325,7 +325,7 @@ class BasePrana3Page(PageWithBackground):
         super().__init__(parent, controller, bg_image)
         self.level = level
         
-        self.create_title(self.texts.LEVEL_TITLES[level]["prana3"], y_ratio=0.05)
+        self.create_title(self.texts.LEVEL_TITLES[level]["prana3"], y_ratio=0.05, width_ratio=0.6, height_ratio=0.07)
         
         self.create_button(
             text=self.texts.BUTTON_TEXTS["description"],
@@ -372,7 +372,7 @@ class BasePrana3DescriptionPage(PageWithBackground):
     def __init__(self, parent: tk.Widget, controller: 'AppController', bg_image, level: str):
         super().__init__(parent, controller, bg_image)
         
-        self.create_title(self.texts.LEVEL_TITLES[level]["prana3_description"], y_ratio=0.03)
+        self.create_title(self.texts.LEVEL_TITLES[level]["prana3_description"], y_ratio=0.03, width_ratio=0.6, height_ratio=0.07)
         
         if level == "beginner":
             description = self.texts.PRANA3_BEGINNER_DESCRIPTION
@@ -381,7 +381,7 @@ class BasePrana3DescriptionPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=description,
-            width_ratio=0.95, height_ratio=0.65, y_ratio=0.10,
+            width_ratio=0.95, height_ratio=0.65, y_ratio=0.13,
             font_config=self.styles.FONTS["label_medium"],
             justify="center"  # Добавлено
         )
@@ -391,7 +391,7 @@ class BasePrana3DescriptionPage(PageWithBackground):
             command=lambda: controller.show_frame(f"Prana3{level.capitalize()}Page"),
             width_ratio=self.styles.WIDGET_SIZES["button_medium"]["width"],
             height_ratio=self.styles.WIDGET_SIZES["button_medium"]["height"],
-            y_ratio=0.78
+            y_ratio=0.81
         )
 
 

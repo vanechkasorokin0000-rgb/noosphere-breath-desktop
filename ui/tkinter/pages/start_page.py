@@ -21,8 +21,8 @@ class StartPage(PageWithBackground):
         
         self.create_title(self.texts.TITLES["start"], y_ratio=0.05)
         
-        button_y_start = 0.12
-        button_step = 0.08
+        button_y_start = 0.16
+        button_step = 0.09
         
         self._create_main_buttons(button_y_start, button_step)
         self._create_language_buttons()

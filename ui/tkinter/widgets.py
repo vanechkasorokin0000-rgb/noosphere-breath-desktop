@@ -93,7 +93,7 @@ class BaseBreathingApp(tk.Frame):
         self.styles = styles
         
         # Применяем множитель длительности для уровня
-        self.round_cycles = self._adjust_cycles(cycles)
+        self.round_cycles = cycles
         
         self.config(bg=self.styles.COLORS["canvas_bg"])
         
@@ -145,22 +145,7 @@ class BaseBreathingApp(tk.Frame):
             "max_size": self.BUTTON_FONT_MAX_SIZE
         }
     
-    def _adjust_cycles(self, cycles: Dict) -> Dict:
-        """Корректировка длительности в зависимости от уровня"""
-        duration_multiplier = self.texts.LEVEL_DURATION_MULTIPLIER.get(self.level, 1.0)
-        
-        if duration_multiplier == 1.0:
-            return cycles
-        
-        adjusted_cycles = {}
-        for round_num, stages in cycles.items():
-            adjusted_stages = []
-            for message, duration in stages:
-                adjusted_duration = max(1, int(duration * duration_multiplier))
-                adjusted_stages.append((message, adjusted_duration))
-            adjusted_cycles[round_num] = adjusted_stages
-        
-        return adjusted_cycles
+
     
     def _load_all_sounds(self, filenames: List[str]) -> List[str]:
         """Загрузка всех доступных звуковых файлов"""

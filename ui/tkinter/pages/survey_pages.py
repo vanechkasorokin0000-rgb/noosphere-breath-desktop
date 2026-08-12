@@ -13,6 +13,7 @@ from ui.tkinter.base_page import PageWithBackground
 
 class SurveyStartPage(PageWithBackground):
     def __init__(self, parent: tk.Widget, controller: 'AppController', bg_image):
+        controller.reset_survey()
         super().__init__(parent, controller, bg_image)
         
         self.create_title(
@@ -22,7 +23,7 @@ class SurveyStartPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=self.texts.SURVEY_START_DESCRIPTION,
-            width_ratio=0.8, height_ratio=0.5, y_ratio=0.13,
+            width_ratio=0.8, height_ratio=0.47, y_ratio=0.16,
             bg_color=self.styles.SURVEY_COLORS["description_bg"],
             font_config=self.styles.SURVEY_FONTS["description"],
             justify="center"  # Добавлено
@@ -64,7 +65,7 @@ class SurveyQuestionPage(PageWithBackground):
         
         self.create_rounded_label(
             text=question["text"],
-            width_ratio=0.9, height_ratio=0.08, y_ratio=0.13,
+            width_ratio=0.6, height_ratio=0.08, y_ratio=0.13,
             bg_color=self.styles.SURVEY_COLORS["label_bg"],
             font_config=self.styles.SURVEY_FONTS["question"],
             border_radius=self.styles.SURVEY_BORDER_RADIUS
@@ -72,7 +73,7 @@ class SurveyQuestionPage(PageWithBackground):
         
         self.create_rounded_label(
             text=question["description"],
-            width_ratio=0.9, height_ratio=0.08, y_ratio=0.23,
+            width_ratio=0.6, height_ratio=0.08, y_ratio=0.23,
             bg_color=self.styles.SURVEY_COLORS["description_bg"],
             font_config=self.styles.SURVEY_FONTS["description"],
             border_radius=self.styles.SURVEY_BORDER_RADIUS
@@ -143,7 +144,7 @@ class SurveyResultPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=result["description"],
-            width_ratio=0.9, height_ratio=0.48, y_ratio=0.13,
+            width_ratio=0.75, height_ratio=0.48, y_ratio=0.13,
             bg_color=self.styles.SURVEY_COLORS["description_bg"],
             font_config=self.styles.SURVEY_FONTS["result_text"],
             justify="center"  # Добавлено
@@ -152,7 +153,7 @@ class SurveyResultPage(PageWithBackground):
         if "tips" in result:
             self.create_rounded_label(
                 text=result["tips"],
-                width_ratio=0.85, height_ratio=0.06, y_ratio=0.63,
+                width_ratio=0.75, height_ratio=0.06, y_ratio=0.63,
                 bg_color=self.styles.SURVEY_COLORS["tip_bg"],
                 font_config=self.styles.SURVEY_FONTS["tip"],
                 border_radius=self.styles.SURVEY_BORDER_RADIUS
@@ -161,7 +162,7 @@ class SurveyResultPage(PageWithBackground):
         self.create_button(
             text=f"{self.texts.SURVEY_GO_TO_PRACTICE} {result['practice']}",
             command=lambda: controller.show_frame(result["page"]),
-            width_ratio=0.3, height_ratio=0.05, y_ratio=0.72,
+            width_ratio=0.4, height_ratio=0.05, y_ratio=0.72,
             font_config=self.styles.SURVEY_FONTS["option_button"]
         )
         

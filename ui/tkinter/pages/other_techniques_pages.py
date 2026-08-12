@@ -22,7 +22,7 @@ class OtherTechniquesMainPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=self.texts.OTHER_TECHNIQUES_MAIN_DESCRIPTION,
-            width_ratio=0.8, height_ratio=0.3, y_ratio=0.15,
+            width_ratio=0.6, height_ratio=0.2, y_ratio=0.15,
             bg_color=self.styles.SURVEY_COLORS["description_bg"],
             font_config=self.styles.SURVEY_FONTS["description"],
             justify="center"  # Добавлено
@@ -31,7 +31,7 @@ class OtherTechniquesMainPage(PageWithBackground):
         self.create_button(
             text=self.texts.BUTTON_TEXTS["addiction_battle"],
             command=lambda: controller.show_frame("AddictionBattleTechniquePage"),
-            width_ratio=0.4, height_ratio=0.06, y_ratio=0.50,
+            width_ratio=0.4, height_ratio=0.06, y_ratio=0.39,
             font_config=self.styles.FONTS["button"]
         )
         
@@ -40,7 +40,7 @@ class OtherTechniquesMainPage(PageWithBackground):
             command=lambda: controller.show_frame("BreathingTechniquesPage"),
             width_ratio=self.styles.WIDGET_SIZES["button_medium"]["width"],
             height_ratio=self.styles.WIDGET_SIZES["button_medium"]["height"],
-            y_ratio=0.60,
+            y_ratio=0.48,
             font_config=self.styles.FONTS["button"]
         )
 
@@ -88,7 +88,7 @@ class AddictionBattleDescriptionPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=self.texts.ADDICTION_BATTLE_DESCRIPTION,
-            width_ratio=0.95, height_ratio=0.65, y_ratio=0.10,
+            width_ratio=0.95, height_ratio=0.65, y_ratio=0.13,
             font_config=self.styles.FONTS["label_large"],
             justify="center"  # Добавлено
         )
@@ -98,7 +98,7 @@ class AddictionBattleDescriptionPage(PageWithBackground):
             command=lambda: controller.show_frame("AddictionBattleTechniquePage"),
             width_ratio=self.styles.WIDGET_SIZES["button_medium"]["width"],
             height_ratio=self.styles.WIDGET_SIZES["button_medium"]["height"],
-            y_ratio=0.78
+            y_ratio=0.81
         )
 
 

@@ -69,7 +69,7 @@ class BaseWimHofDescriptionPage(PageWithBackground):
         super().__init__(parent, controller, bg_image)
         
         self.create_title(
-            self.texts.LEVEL_TITLES[level]["wim_hof_description"], width_ratio=0.6, y_ratio=0.03
+            self.texts.LEVEL_TITLES[level]["wim_hof_description"], width_ratio=0.7, y_ratio=0.03
         )
         
         if level == "beginner":
@@ -79,7 +79,7 @@ class BaseWimHofDescriptionPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=description,
-            width_ratio=0.95, height_ratio=0.65, y_ratio=0.10,
+            width_ratio=0.95, height_ratio=0.65, y_ratio=0.13,
             font_config=self.styles.FONTS["label_large"],
             justify="center"  # Добавлено
         )
@@ -89,7 +89,7 @@ class BaseWimHofDescriptionPage(PageWithBackground):
             command=lambda: controller.show_frame(f"WimHof{level.capitalize()}Page"),
             width_ratio=self.styles.WIDGET_SIZES["button_medium"]["width"],
             height_ratio=self.styles.WIDGET_SIZES["button_medium"]["height"],
-            y_ratio=0.78
+            y_ratio=0.81
         )
 
 

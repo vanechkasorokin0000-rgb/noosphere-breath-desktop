@@ -19,7 +19,7 @@ class BreathingTechniquesPage(PageWithBackground):
         
         self.create_scrollable_label(
             text=self.texts.BREATHING_LEVELS_DESCRIPTION,
-            width_ratio=0.9, height_ratio=0.35, y_ratio=0.12,
+            width_ratio=0.6, height_ratio=0.35, y_ratio=0.12,
             bg_color=self.styles.SURVEY_COLORS["description_bg"],
             font_config=self.styles.SURVEY_FONTS["description"],
             justify="center"  # Добавлено
@@ -61,7 +61,10 @@ class LevelBasedTechniquesPage(PageWithBackground):
         self.level = level
         
         self.create_title(
-            self.texts.LEVEL_TITLES[level]["breathing_techniques"], y_ratio=0.05
+            self.texts.LEVEL_TITLES[level]["breathing_techniques"], 
+            y_ratio=0.05,
+            width_ratio=0.60,
+            height_ratio=0.07
         )
         
         buttons = [

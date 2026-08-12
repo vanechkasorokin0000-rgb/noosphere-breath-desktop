@@ -31,5 +31,5 @@ class CompanyPage(PageWithBackground):
             command=lambda: controller.show_frame("StartPage"),
             width_ratio=self.styles.WIDGET_SIZES["button_medium"]["width"],
             height_ratio=self.styles.WIDGET_SIZES["button_medium"]["height"],
-            y_ratio=0.76
+            y_ratio=0.71
         )

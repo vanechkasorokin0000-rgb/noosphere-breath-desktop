@@ -21,11 +21,11 @@ class DiaryStartPage(PageWithBackground):
     def __init__(self, parent: tk.Widget, controller: 'AppController', bg_image):
         super().__init__(parent, controller, bg_image)
         
-        self.create_title(self.texts.DIARY_TITLES.get("start", "📔 Дневник наблюдений"), y_ratio=0.03)
+        self.create_title(self.texts.DIARY_TITLES.get("start", "Дневник наблюдений"), y_ratio=0.03)
         
         self.create_scrollable_label(
             text=self.texts.DIARY_START_DESCRIPTION,
-            width_ratio=0.85, height_ratio=0.4, y_ratio=0.13,
+            width_ratio=0.70, height_ratio=0.4, y_ratio=0.13,
             bg_color=self.styles.SURVEY_COLORS["description_bg"],
             font_config=self.styles.SURVEY_FONTS["description"],
             justify="center"  # Добавлено
@@ -37,11 +37,11 @@ class DiaryStartPage(PageWithBackground):
             days_word = self.controller.get_day_word(stats.total_days)
             sessions_word = self.controller.get_session_word(stats.total_sessions)
             
-            quick_stats = f"📊 {self.texts.DIARY_QUICK_STATS_PREFIX} {stats.total_days} {days_word} {self.texts.DIARY_PRACTICE_TEXT}, {stats.total_sessions} {sessions_word}, {stats.total_minutes} {self.texts.DIARY_MINUTES_TEXT}"
+            quick_stats = f" {self.texts.DIARY_QUICK_STATS_PREFIX} {stats.total_days} {days_word} {self.texts.DIARY_PRACTICE_TEXT}, {stats.total_sessions} {sessions_word}, {stats.total_minutes} {self.texts.DIARY_MINUTES_TEXT}"
             
             self.create_rounded_label(
                 text=quick_stats,
-                width_ratio=0.7, height_ratio=0.08, y_ratio=0.55,
+                width_ratio=0.4, height_ratio=0.08, y_ratio=0.55,
                 bg_color=self.styles.SURVEY_COLORS["label_bg"],
                 font_config=self.styles.DIARY_STATS_FONT,
                 border_radius=self.styles.SURVEY_BORDER_RADIUS
@@ -133,7 +133,7 @@ class DiaryViewPage(PageWithBackground):
     def _create_stats_label(self):
         """Создание метки со статистикой"""
         self.stats_label = self.create_rounded_label(
-            text="", width_ratio=0.7, height_ratio=0.05, y_ratio=0.17,
+            text="", width_ratio=0.5, height_ratio=0.05, y_ratio=0.17,
             bg_color=self.styles.SURVEY_COLORS["description_bg"],
             font_config=self.styles.DIARY_STATS_FONT,
             border_radius=self.styles.SURVEY_BORDER_RADIUS
