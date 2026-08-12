@@ -1,33 +1,6 @@
 name: Build Desktop Apps
 on: [push, workflow_dispatch]
 jobs:
-  build-macos:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: |
-          pip install -r requirements.txt pyinstaller
-          pyinstaller --onefile --windowed \
-            --add-data "resources:resources" \
-            --add-data "texts.py:." \
-            --add-data "texts_en.py:." \
-            --add-data "core:core" \
-            --add-data "ui:ui" \
-            --hidden-import PIL \
-            --hidden-import PIL.Image \
-            --hidden-import pygame \
-            --hidden-import requests \
-            --hidden-import core.protection_simple \
-            --hidden-import core.bot_client \
-            --name NoosphereBreath main.py
-      - uses: actions/upload-artifact@v4
-        with:
-          name: macOS-App
-          path: dist/NoosphereBreath
-
   build-windows:
     runs-on: windows-latest
     steps:
@@ -37,11 +10,26 @@ jobs:
           python-version: '3.11'
       - run: |
           pip install -r requirements.txt pyinstaller
-          pyinstaller --onefile --windowed --name NoosphereBreath main.py
+          pyinstaller --onefile --windowed --icon=resources/icon.ico --name NoosphereBreath main.py
       - uses: actions/upload-artifact@v4
         with:
           name: Windows-App
           path: dist/NoosphereBreath.exe
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          pip install -r requirements.txt pyinstaller
+          pyinstaller --onefile --windowed --icon=resources/icon.icns --name NoosphereBreath main.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macOS-App
+          path: dist/NoosphereBreath
 
   build-linux:
     runs-on: ubuntu-22.04

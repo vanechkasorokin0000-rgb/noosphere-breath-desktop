@@ -30,6 +30,10 @@ class TkinterApp(tk.Tk):
         print(f"DEBUG: is_activated={self.protection.is_activated()}, activation_required={self.activation_required}")
         
         self.title("Noosphere Breath")
+        try:
+            self.iconbitmap("resources/icon.ico")
+        except:
+            pass
         self.geometry("1200x800")
         self.attributes("-fullscreen", True)
         self.bind("<Escape>", self._exit_fullscreen)
