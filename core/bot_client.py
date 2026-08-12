@@ -6,7 +6,6 @@ from typing import Tuple
 
 logger = logging.getLogger('NoosphereBreath.BotClient')
 
-# URL веб-сервера активации (нужно заменить на реальный)
 ACTIVATION_SERVER = "https://noosphereproject.ru:5000"
 
 
@@ -38,6 +37,7 @@ class BotClient:
             return False, "Ошибка сервера"
             
         except ImportError:
+            logger.warning("requests не установлен")
             return True, "Офлайн-режим"
         except Exception as e:
             logger.error(f"Ошибка: {e}")

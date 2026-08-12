@@ -84,7 +84,7 @@ class ActivationValidator:
             expected = hashlib.sha256(f"{self.uid}_activation_{self.app_key}".encode()).hexdigest()[:16]
             return hashlib.sha256(key.encode()).hexdigest()[:16] == expected
         # Заглушка
-        return len(key) >= 16
+        return len(key) >= 16  # ЗАГЛУШКА: удалить после отладки
 
 
 class AppProtection:
