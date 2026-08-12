@@ -31,7 +31,7 @@ class TkinterApp(tk.Tk):
         
         self.title("Noosphere Breath")
         try:
-            self.iconbitmap("resources/icon.ico")
+            self.iconbitmap("resources/icon.icns")
         except:
             pass
         self.geometry("1200x800")
