@@ -31,9 +31,19 @@ class TkinterApp(tk.Tk):
         
         self.title("Noosphere Breath")
         try:
-            self.iconbitmap("resources/icon.icns")
-        except:
-            pass
+            import sys
+            if getattr(sys, 'frozen', False):
+                # PyInstaller bundle
+                base_path = sys._MEIPASS
+            else:
+                base_path = os.path.dirname(os.path.abspath(__file__))
+            icon_path = os.path.join(base_path, "resources", "icon.png")
+            if os.path.exists(icon_path):
+                from PIL import Image, ImageTk
+                self.icon_img = ImageTk.PhotoImage(Image.open(icon_path))
+                self.iconphoto(True, self.icon_img)
+        except Exception as e:
+            print(f"Иконка не загружена: {e}")
         self.geometry("1200x800")
         self.attributes("-fullscreen", True)
         self.bind("<Escape>", self._exit_fullscreen)

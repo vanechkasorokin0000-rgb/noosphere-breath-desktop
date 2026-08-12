@@ -10,7 +10,7 @@ jobs:
           python-version: '3.11'
       - run: |
           pip install -r requirements.txt pyinstaller
-          pyinstaller --onefile --windowed --icon=resources/icon.png --name NoosphereBreath main.py
+          pyinstaller --onefile --windowed --icon=resources/icon.png --add-data "resources:resources" --name NoosphereBreath main.py
       - uses: actions/upload-artifact@v4
         with:
           name: Windows-App
@@ -25,7 +25,7 @@ jobs:
           python-version: '3.11'
       - run: |
           pip install -r requirements.txt pyinstaller
-          pyinstaller --onefile --windowed --icon=resources/icon.png --name NoosphereBreath main.py
+          pyinstaller --onefile --windowed --icon=resources/icon.png --add-data "resources:resources" --name NoosphereBreath main.py
       - uses: actions/upload-artifact@v4
         with:
           name: macOS-App
@@ -42,7 +42,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y python3-tk python3-pygame
           pip install -r requirements.txt pyinstaller
-          pyinstaller --onefile --windowed --icon=resources/icon.png --name NoosphereBreath main.py
+          pyinstaller --onefile --windowed --icon=resources/icon.png --add-data "resources:resources" --name NoosphereBreath main.py
       - uses: actions/upload-artifact@v4
         with:
           name: Linux-App
