@@ -152,5 +152,8 @@ class TkinterApp(tk.Tk):
         self.destroy()
     
     def run(self):
-        self.show_frame("StartPage")
+        if self.activation_required:
+            self._show_activation()
+        else:
+            self.show_frame("StartPage")
         self.mainloop()
