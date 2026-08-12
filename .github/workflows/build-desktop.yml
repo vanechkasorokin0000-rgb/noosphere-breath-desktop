@@ -44,7 +44,6 @@ jobs:
           sudo apt-get install -y python3-tk python3-pygame
           pip install -r requirements.txt pyinstaller
           pyinstaller --onefile --windowed --icon=resources/icon.png --add-data "resources:resources" --name NoosphereBreath main.py
-          codesign --force --deep --sign - dist/NoosphereBreath
       - uses: actions/upload-artifact@v4
         with:
           name: Linux-App
