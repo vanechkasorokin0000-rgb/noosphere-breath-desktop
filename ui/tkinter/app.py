@@ -70,7 +70,9 @@ class TkinterApp(tk.Tk):
         self.controller.set_app_instance(self)
         
         self.protection = AppProtection()
+        print("DEBUG: Checking activation...")
         self.activation_required = not self.protection.is_activated()
+        print(f"DEBUG: is_activated={self.protection.is_activated()}, activation_required={self.activation_required}")
         
         self.title("Noosphere Breath")
         self.geometry("1200x800")
