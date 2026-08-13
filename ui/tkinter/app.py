@@ -8,7 +8,7 @@ from typing import Dict, Type
 
 from core.app_controller import AppController
 from core.protection_simple import AppProtection
-from .activation_screen import ActivationScreen
+from activation_screen import ActivationScreen
 from .styles import styles
 from .base_page import PageWithBackground
 
