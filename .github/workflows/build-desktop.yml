@@ -12,7 +12,7 @@ jobs:
         shell: pwsh
         run: |
           pip install --no-cache-dir -r requirements.txt pyinstaller
-          pyinstaller --clean --noconfirm --onefile --windowed --icon=resources/icon.ico --add-data "resources;resources" --name NoosphereBreath main.py
+          pyinstaller --clean --noconfirm --onefile --windowed --icon=resources/icon.ico --add-data "resources;resources" --hidden-import ui.tkinter.activation_screen --name NoosphereBreath main.py
       - uses: actions/upload-artifact@v4
         with:
           name: Windows-App
@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: |
           pip install --no-cache-dir -r requirements.txt pyinstaller
-          pyinstaller --clean --noconfirm --onefile --windowed --icon=resources/icon.icns --add-data "resources:resources" --name NoosphereBreath main.py
+          pyinstaller --clean --noconfirm --onefile --windowed --icon=resources/icon.icns --add-data "resources:resources" --hidden-import ui.tkinter.activation_screen --name NoosphereBreath main.py
           mkdir -p NoosphereBreath.app/Contents/MacOS
           mkdir -p NoosphereBreath.app/Contents/Resources
           cp dist/NoosphereBreath NoosphereBreath.app/Contents/MacOS/
@@ -96,7 +96,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y python3-tk python3-pygame
           pip install --no-cache-dir -r requirements.txt pyinstaller
-          pyinstaller --clean --noconfirm --onefile --windowed --add-data "resources:resources" --name NoosphereBreath main.py
+          pyinstaller --clean --noconfirm --onefile --windowed --add-data "resources:resources" --hidden-import ui.tkinter.activation_screen --name NoosphereBreath main.py
       - uses: actions/upload-artifact@v4
         with:
           name: Linux-App
