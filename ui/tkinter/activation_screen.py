@@ -33,14 +33,14 @@ class ActivationScreen(tk.Frame):
         
         # Кнопка
         self.btn = tk.Button(container, text="Активировать", 
-                            font=("Arial", 18, "bold"), bg="#F5F5DC", fg="black", activebackground="#E8E8D0", activeforeground="black",
+                            font=("Arial", 18, "bold"), bg="black", fg="white", activebackground="#333333", activeforeground="white",
                             padx=40, pady=15, relief="flat", cursor="hand2",
                             activebackground="#1B5E20", activeforeground="white",
                             command=self._activate)
         self.btn.pack(pady=(0, 30))
         
         # Подсказка
-        support = tk.Label(container, text="По вопросам: @Midnightclimber",
+        support = tk.Label(container, text="По вопросам: @Midnightclimber\nnoosphere_project@mail.ru",
                           font=("Arial", 12), bg="#0D0D26", fg="#888888")
         support.pack()
         
