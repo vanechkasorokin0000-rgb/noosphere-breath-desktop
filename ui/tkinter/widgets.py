@@ -104,7 +104,7 @@ class BaseBreathingApp(tk.Frame):
         # Загрузка ВСЕХ доступных звуков и изображений для рандомайзера
         self.all_alarm_sounds = self._load_all_sounds(["alarm1.mp3", "alarm2.mp3"])
         self.all_cycle_sounds = self._load_all_sounds(["cycle1.mp3", "cycle2.mp3", "cycle3.mp3", "cycle4.mp3"])
-        self.all_background_images = self._load_all_images(["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"])
+        self.all_background_images = self._load_all_images(["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg", "background5.jpg", "background6.jpg", "background7.jpg", "background8.jpg", "background9.jpg", "background10.jpg"])
         
         # Переменные состояния
         self.time_left = 0

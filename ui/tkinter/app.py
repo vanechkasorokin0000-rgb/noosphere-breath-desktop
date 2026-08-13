@@ -107,10 +107,16 @@ class TkinterApp(tk.Tk):
     
     def _load_image(self, path: str):
         base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
-        full_path = os.path.join(base_path, path)
-        if not os.path.exists(full_path):
-            return Image.new('RGB', (1920, 1080), color='#F0FFFF')
-        return Image.open(full_path)
+        # Ищем в нескольких местах
+        candidates = [
+            os.path.join(base_path, path),
+            os.path.join(base_path, "resources", path),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", path),
+        ]
+        for full_path in candidates:
+            if os.path.exists(full_path):
+                return Image.open(full_path)
+        return Image.new('RGB', (1920, 1080), color='#F0FFFF')
     
     def cleanup(self):
         pygame.mixer.quit()

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Noosphere Breath
+Exec=/opt/noospherebreath/NoosphereBreath
+Icon=/opt/noospherebreath/icon.png
+Type=Application
+Categories=Health;
