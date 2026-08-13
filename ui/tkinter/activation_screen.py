@@ -77,3 +77,4 @@ class ActivationScreen(tk.Frame):
             self.app.show_main_screen()
         else:
             messagebox.showerror("Ошибка", message)
+print("🔵 НОВАЯ ВЕРСИЯ activation_screen.py v2.1")
