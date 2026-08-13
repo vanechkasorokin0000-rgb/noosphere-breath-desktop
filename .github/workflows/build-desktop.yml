@@ -100,8 +100,23 @@ jobs:
       - run: |
           mkdir -p linux_package
           cp dist/NoosphereBreath linux_package/
-          cp resources/icon.png linux_package/
-          cp NoosphereBreath.desktop linux_package/
+          cat > linux_package/ИНСТРУКЦИЯ.txt << 'TXT'
+          ЗАПУСК ПРИЛОЖЕНИЯ В LINUX:
+
+          Способ 1 (простой):
+          1. Нажмите правой кнопкой мыши на файл NoosphereBreath
+          2. Выберите "Свойства" → "Права" → отметьте "Разрешить выполнение как программы"
+          3. Закройте окно свойств
+          4. Дважды кликните по файлу NoosphereBreath
+
+          Способ 2 (через терминал):
+          1. Откройте терминал
+          2. Перейдите в папку с файлом: cd ~/Downloads
+          3. Выполните: chmod +x NoosphereBreath
+          4. Запустите: ./NoosphereBreath
+
+          При первом запуске введите ключ активации.
+          TXT
           zip -r NoosphereBreath-linux.zip linux_package/
       - uses: actions/upload-artifact@v4
         with:
