@@ -97,7 +97,13 @@ jobs:
           sudo apt-get install -y python3-tk python3-pygame
           pip install --no-cache-dir -r requirements.txt pyinstaller
           pyinstaller --clean --noconfirm --onefile --windowed --add-data "resources:resources" --add-data "activation_screen.py:." --hidden-import ui.tkinter.activation_screen --name NoosphereBreath main.py
+      - run: |
+          mkdir -p linux_package
+          cp dist/NoosphereBreath linux_package/
+          cp resources/icon.png linux_package/
+          cp NoosphereBreath.desktop linux_package/
+          zip -r NoosphereBreath-linux.zip linux_package/
       - uses: actions/upload-artifact@v4
         with:
           name: Linux-App
-          path: dist/NoosphereBreath
+          path: NoosphereBreath-linux.zip
