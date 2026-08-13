@@ -8,15 +8,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Clean Cache (Windows)
-        shell: pwsh
-        run: |
-          Remove-Item -Recurse -Force build, dist, __pycache__ -ErrorAction SilentlyContinue
-          Get-ChildItem -Recurse -Filter *.pyc | Remove-Item -Force
       - name: Build
         shell: pwsh
         run: |
-          pip install --no-cache-dir --force-reinstall -r requirements.txt pyinstaller
+          pip install --no-cache-dir -r requirements.txt pyinstaller
           pyinstaller --clean --noconfirm --onefile --windowed --icon=resources/icon.ico --add-data "resources;resources" --name NoosphereBreath main.py
       - uses: actions/upload-artifact@v4
         with:
@@ -30,18 +25,64 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Clean Cache
-        run: |
-          rm -rf build dist __pycache__
-          find . -name "*.pyc" -delete
       - name: Build
         run: |
-          pip install --no-cache-dir --force-reinstall -r requirements.txt pyinstaller
+          pip install --no-cache-dir -r requirements.txt pyinstaller
           pyinstaller --clean --noconfirm --onefile --windowed --icon=resources/icon.icns --add-data "resources:resources" --name NoosphereBreath main.py
+          mkdir -p NoosphereBreath.app/Contents/MacOS
+          mkdir -p NoosphereBreath.app/Contents/Resources
+          cp dist/NoosphereBreath NoosphereBreath.app/Contents/MacOS/
+          cp resources/icon.icns NoosphereBreath.app/Contents/Resources/
+          cp -r resources NoosphereBreath.app/Contents/Resources/
+          cp texts.py texts_en.py NoosphereBreath.app/Contents/Resources/
+          cat > NoosphereBreath.app/Contents/Info.plist << 'PLIST'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>CFBundleName</key>
+              <string>NoosphereBreath</string>
+              <key>CFBundleDisplayName</key>
+              <string>Noosphere Breath</string>
+              <key>CFBundleIdentifier</key>
+              <string>com.noosphere.noospherebreath</string>
+              <key>CFBundleVersion</key>
+              <string>1.0.0</string>
+              <key>CFBundleExecutable</key>
+              <string>NoosphereBreath</string>
+              <key>CFBundleIconFile</key>
+              <string>icon.icns</string>
+              <key>CFBundlePackageType</key>
+              <string>APPL</string>
+          </dict>
+          </plist>
+          PLIST
+          chmod +x NoosphereBreath.app/Contents/MacOS/NoosphereBreath
+          cat > NoosphereBreath.command << 'CMD'
+          #!/bin/bash
+          xattr -cr /Applications/NoosphereBreath.app
+          cd /Applications/NoosphereBreath.app/Contents/Resources
+          /Applications/NoosphereBreath.app/Contents/MacOS/NoosphereBreath
+          CMD
+          chmod +x NoosphereBreath.command
+          mkdir -p dmg
+          cp -r NoosphereBreath.app dmg/
+          cp NoosphereBreath.command dmg/
+          cat > dmg/ИНСТРУКЦИЯ.txt << 'TXT'
+          Noosphere Breath - Инструкция
+
+          1. Перетащите NoosphereBreath.app в папку Applications (Программы)
+          2. Перетащите NoosphereBreath.command на Рабочий стол
+          3. Запустите NoosphereBreath.command двойным кликом
+          4. Если появится предупреждение - правый клик → Открыть
+
+          При первом запуске приложение попросит ввести ключ активации.
+          TXT
+          hdiutil create -volname "NoosphereBreath" -srcfolder dmg -ov -format UDZO NoosphereBreath.dmg
       - uses: actions/upload-artifact@v4
         with:
           name: macOS-DMG
-          path: dist/NoosphereBreath
+          path: NoosphereBreath.dmg
 
   build-linux:
     runs-on: ubuntu-22.04
@@ -50,15 +91,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Clean Cache
-        run: |
-          rm -rf build dist __pycache__
-          find . -name "*.pyc" -delete
       - name: Build
         run: |
           sudo apt-get update
           sudo apt-get install -y python3-tk python3-pygame
-          pip install --no-cache-dir --force-reinstall -r requirements.txt pyinstaller
+          pip install --no-cache-dir -r requirements.txt pyinstaller
           pyinstaller --clean --noconfirm --onefile --windowed --add-data "resources:resources" --name NoosphereBreath main.py
       - uses: actions/upload-artifact@v4
         with:
