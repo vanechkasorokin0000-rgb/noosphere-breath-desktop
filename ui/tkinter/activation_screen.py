@@ -6,6 +6,8 @@ class ActivationScreen(tk.Frame):
         super().__init__(parent)
         self.controller = controller
         self.app = app
+        self.max_attempts = 3
+        self._load_attempts()
         self.configure(bg="#0D0D26")
         
         # Центрирующий контейнер
