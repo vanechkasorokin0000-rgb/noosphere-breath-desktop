@@ -44,7 +44,16 @@ class ActivationScreen(tk.Frame):
                           font=("Arial", 12), bg="#0D0D26", fg="#888888")
         support.pack()
         
+        self.attempts_label = tk.Label(container, text=f"Осталось попыток: {max(0, self.max_attempts - self.attempts)}",
+                                       font=("Arial", 12), bg="#0D0D26", fg="#CCCCCC")
+        self.attempts_label.pack()
+        
         self.pack(expand=True, fill="both")
+    
+    def _update_attempts_label(self):
+        remaining = max(0, self.max_attempts - self.attempts)
+        if hasattr(self, 'attempts_label'):
+            self.attempts_label.config(text=f"Осталось попыток: {remaining}")
     
     def _format_key(self, *args):
         """Автоматически форматирует ввод как XXXX-XXXX-XXXX-XXXX"""
