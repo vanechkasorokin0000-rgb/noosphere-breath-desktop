@@ -101,5 +101,10 @@ class ActivationScreen(tk.Frame):
             messagebox.showinfo("Успех", message)
             self.app.show_main_screen()
         else:
-            messagebox.showerror("Ошибка", message)
+            self.attempts += 1
+            self._save_attempts()
+            remaining = max(0, self.max_attempts - self.attempts)
+            if hasattr(self, 'attempts_label'):
+                self.attempts_label.config(text=f"Осталось попыток: {remaining}")
+            messagebox.showerror("Ошибка", f"{message}\nОсталось попыток: {remaining}")
 print("🔵 НОВАЯ ВЕРСИЯ activation_screen.py v2.1")
