@@ -33,9 +33,9 @@ class ActivationScreen(tk.Frame):
         
         # Кнопка
         self.btn = tk.Button(container, text="Активировать", 
-                            font=("Arial", 18, "bold"), bg="black", fg="white", activebackground="#333333", activeforeground="white",
+                            font=("Arial", 18, "bold"), bg="black", fg="white", 
                             padx=40, pady=15, relief="flat", cursor="hand2",
-                            activebackground="#1B5E20", activeforeground="white",
+                            
                             command=self._activate)
         self.btn.pack(pady=(0, 30))
         
