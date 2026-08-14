@@ -57,6 +57,20 @@ class ActivationScreen(tk.Frame):
         if hasattr(self, 'attempts_label'):
             self.attempts_label.config(text=f"Осталось попыток: {remaining}")
     
+    def _load_attempts(self):
+        try:
+            with open('activation_attempts.txt', 'r') as f:
+                self.attempts = int(f.read())
+        except:
+            self.attempts = 0
+    
+    def _save_attempts(self):
+        try:
+            with open('activation_attempts.txt', 'w') as f:
+                f.write(str(self.attempts))
+        except:
+            pass
+    
     def _format_key(self, *args):
         """Автоматически форматирует ввод как XXXX-XXXX-XXXX-XXXX"""
         text = ''.join(c for c in self.key_var.get() if c.isdigit())
